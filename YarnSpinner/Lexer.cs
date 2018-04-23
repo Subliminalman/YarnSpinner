@@ -30,7 +30,7 @@ using System.Collections.Generic;
 
 namespace Yarn {
 
-	internal class TokeniserException : InvalidOperationException  {
+	public class TokeniserException : InvalidOperationException  {
 
 		public int lineNumber;
 		public int columnNumber;
@@ -66,7 +66,7 @@ namespace Yarn {
 	}
 
 	// save some typing, we deal with lists of tokens a LOT
-	internal class TokenList : List<Token> {
+	public class TokenList : List<Token> {
 		// quick constructor to make it easier to create 
 		// TokenLists with a list of tokens
 		public TokenList (params Token[] tokens) : base()
@@ -76,7 +76,7 @@ namespace Yarn {
 
 	}
 
-	internal enum TokenType {
+	public enum TokenType {
 
 
 		
@@ -172,7 +172,7 @@ namespace Yarn {
 	}
 	
 	// A parsed token.
-	internal class Token {
+	public class Token {
 
 		// The token itself
 		public TokenType type;
@@ -209,9 +209,9 @@ namespace Yarn {
 		}
 	}
 
-	internal class Lexer {
+	public class Lexer {
 
-		internal class LexerState {
+		public class LexerState {
 
 			public string name;
 
@@ -279,7 +279,7 @@ namespace Yarn {
 
 			
 		}
-		internal class TokenRule {
+		public class TokenRule {
 			public Regex regex = null;
 
 			// set to null if it should stay in the same state

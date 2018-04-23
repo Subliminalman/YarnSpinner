@@ -24,7 +24,10 @@
     <Externalconsole>true</Externalconsole>
     <CustomCommands>
       <CustomCommands>
-        <Command type="BeforeExecute" workingdir="${SolutionDir}" />
+        <Command>
+          <type>BeforeExecute</type>
+          <workingdir>${SolutionDir}</workingdir>
+        </Command>
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>

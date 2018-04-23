@@ -34,7 +34,7 @@ namespace Yarn {
 
 	// An exception representing something going wrong during parsing
 	[Serializable]
-	internal class ParseException : Exception {
+	public class ParseException : Exception {
 
 		internal int lineNumber = 0;
 

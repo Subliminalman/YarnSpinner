@@ -170,7 +170,7 @@ namespace Yarn
 
 
 		internal void RunInstruction(Instruction i) {
-			switch (i.operation) {
+            switch (i.operation) {
 			case ByteCode.Label:
 
 				// No-op; used as a destination for JumpTo and Jump.

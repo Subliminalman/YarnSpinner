@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace Yarn
 {
 
-	internal struct LineInfo {
+	public struct LineInfo {
 		public int lineNumber;
 		public string nodeName;
 
@@ -18,13 +18,13 @@ namespace Yarn
 
 
 	[JsonObject(MemberSerialization.OptIn)] // properties must opt-in to JSON serialization
-	internal class Program {
+	public class Program {
 
 		internal Dictionary<string,string> strings = new Dictionary<string, string> ();
-		internal Dictionary<string, LineInfo> lineInfo = new Dictionary<string, LineInfo>();
+		public Dictionary<string, LineInfo> lineInfo = new Dictionary<string, LineInfo>();
 
 		[JsonProperty]
-		internal Dictionary<string, Node> nodes = new Dictionary<string, Node>();
+		public Dictionary<string, Node> nodes = new Dictionary<string, Node>();
 
 		// When saving programs, we want to save only lines that do NOT have a line: key.
 		// This is because these lines will be loaded from a string table.
@@ -160,7 +160,7 @@ namespace Yarn
 		}
 	}
 
-	internal class Node {
+	public class Node {
 
 		public List<Instruction> instructions = new List<Instruction>();
 
@@ -175,12 +175,13 @@ namespace Yarn
 		public List<string> tags;
 	}
 
-	struct Instruction {
+	public struct Instruction {
 		public ByteCode operation;
 		public object operandA;
 		public object operandB;
+        		
 
-		public  string ToString(Program p, Library l) {
+        public  string ToString(Program p, Library l) {
 
 			// Labels are easy: just dump out the name
 			if (operation == ByteCode.Label) {
@@ -266,7 +267,7 @@ namespace Yarn
 		}
 	}
 
-	internal enum ByteCode {
+	public enum ByteCode {
 		
 		Label,			    // opA = string: label name
 		JumpTo,			    // opA = string: label name

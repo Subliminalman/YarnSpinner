@@ -48,7 +48,7 @@ namespace Yarn {
 
 
 
-	internal class Loader {
+	public class Loader {
 
 		private Dialogue dialogue;
 
@@ -225,7 +225,7 @@ namespace Yarn {
 
 		}
 
-		internal static NodeFormat GetFormatFromFileName(string fileName)
+		public static NodeFormat GetFormatFromFileName(string fileName)
 		{
 			NodeFormat format;
 			if (fileName.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
@@ -249,7 +249,7 @@ namespace Yarn {
 
 		// Given either Twine, JSON or XML input, return an array
 		// containing info about the nodes in that file
-		internal NodeInfo[] GetNodesFromText(string text, NodeFormat format)
+		public NodeInfo[] GetNodesFromText(string text, NodeFormat format)
 		{
 			// All the nodes we found in this file
 			var nodes = new List<NodeInfo> ();
