@@ -11,16 +11,15 @@ namespace Yarn
 		{
 
 			YarnSpinnerConsole.CheckFileList(options.files, YarnSpinnerConsole.ALLOWED_EXTENSIONS);
-
+            YarnSpinnerConsole.Note ("Start");
 			if (options.verbose && options.onlyUseTag != null) {
 				YarnSpinnerConsole.Note(string.Format("Only using lines from nodes tagged \"{0}\"", options.onlyUseTag));
 			}
 
 			bool linesWereUntagged = false;
 
-			foreach (var file in options.files) {
-
-				var dialogue = YarnSpinnerConsole.CreateDialogueForUtilities();
+			foreach (var file in options.files) {                
+                var dialogue = YarnSpinnerConsole.CreateDialogueForUtilities();
 
 				dialogue.LoadFile (file);
 
@@ -30,7 +29,10 @@ namespace Yarn
 
 				var anyLinesAreUntagged = false;
 
-				foreach (var entry in stringTable) {
+                YarnSpinnerConsole.Note ("Options Only use tag is not null: " + (options.onlyUseTag != null));
+
+                foreach (var entry in stringTable) {
+
 
 					// If options.onlyUseTag is set, we skip all lines in nodes that
 					// don't have that tag.
@@ -60,16 +62,18 @@ namespace Yarn
 
 						// If the tags don't include the one we're looking for,
 						// skip this line
-						if (tags.FindIndex(i => i == options.onlyUseTag) == -1) {
+						if (tags.FindIndex(i => i == options.onlyUseTag) == -1) {                            
 							continue;
 						}
 
 					}
 
-					if (entry.Key.StartsWith("line:") == false) {
+                    if (entry.Key.StartsWith("line:", System.StringComparison.Ordinal) == false) {
 						anyLinesAreUntagged = true;
+                        YarnSpinnerConsole.Warn ("Untagged line - Key: " + entry.Key + " Value: " + entry.Value);
 					} else {
-						emittedStringTable [entry.Key] = entry.Value;
+                        YarnSpinnerConsole.Note ("Entry - Key: " + entry.Key + " Value: " + entry.Value);
+                        emittedStringTable [entry.Key] = entry.Value;
 					}
 				}
 
@@ -82,8 +86,9 @@ namespace Yarn
 
 				using (var w = new System.IO.StringWriter()) {
 					using (var csv = new CsvWriter(w)) {
+                        YarnSpinnerConsole.Note ("StartWriting: " + file);
 
-						csv.WriteHeader<LocalisedLine>();
+                        csv.WriteHeader<LocalisedLine>();
 
 						foreach (var entry in emittedStringTable)
 						{
@@ -92,8 +97,8 @@ namespace Yarn
 							l.LineCode = entry.Key;
 							l.LineText = entry.Value;
 							l.Comment = "";
-
-							csv.WriteRecord(l);
+                            YarnSpinnerConsole.Note ("LocalizedLine - Code: " + l.LineCode + " Text: " + l.LineText);
+                            csv.WriteRecord(l);
 						}
 
 						var dir = System.IO.Path.GetDirectoryName(file);

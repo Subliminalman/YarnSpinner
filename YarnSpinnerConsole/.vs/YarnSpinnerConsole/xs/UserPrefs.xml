@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{F7775E4E-CA94-4C7D-8AD3-22F1AB3DB3B0}|Default">
+  <MonoDevelop.Ide.ItemProperties.YarnSpinnerConsole PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TableGenerator.cs">
+    <Files>
+      <File FileName="Main.cs" Line="31" Column="19" />
+      <File FileName="LineAdder.cs" Line="1" Column="1" />
+      <File FileName="TableGenerator.cs" Line="90" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="YarnSpinnerConsole" expanded="True">
+            <Node name="YarnSpinnerConsole" expanded="True" selected="True">
+              <Node name="References" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <Debugger.DebugSourceFolders />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="91" column="1" />
+      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="87" column="1" />
+      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="13" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Debug" Name="Debug">
+      <Items>
+        <StartupItem ItemId="{F7775E4E-CA94-4C7D-8AD3-22F1AB3DB3B0}" ItemName="YarnSpinnerConsole" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

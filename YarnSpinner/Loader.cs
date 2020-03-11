@@ -164,8 +164,8 @@ namespace Yarn {
 				}
 				catch (InvalidOperationException e)
 				{
-					var message = string.Format("In file {0}: Error reading node {1}: {2}", fileName, nodeInfo.title, e.Message);
-					throw new InvalidOperationException(message);
+					var message = string.Format("In file {0}: Error reading node {1}: {2}", fileName, nodeInfo.title, e.Message);                    
+					//throw new InvalidOperationException(message);
 				}
 #endif
 

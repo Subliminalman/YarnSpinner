@@ -250,7 +250,7 @@ namespace Yarn
 			ConvertFormatOptions
 			>(args);
 
-			var returnCode = results.MapResult(
+            var returnCode = results.MapResult (
 				(RunOptions options) => Run(options),
 				(VerifyOptions options) => Verify(options),
 				(CompileOptions options) => ProgramExporter.Export(options),
