@@ -2,16 +2,19 @@
   <MonoDevelop.Ide.ItemProperties.YarnSpinnerConsole PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TableGenerator.cs">
     <Files>
-      <File FileName="Main.cs" Line="31" Column="19" />
-      <File FileName="LineAdder.cs" Line="1" Column="1" />
-      <File FileName="TableGenerator.cs" Line="90" Column="1" />
+      <File FileName="Main.cs" Line="78" Column="32" />
+      <File FileName="LineAdder.cs" Line="228" Column="2" />
+      <File FileName="TableGenerator.cs" Line="139" Column="1" />
+      <File FileName="FileFormatConverter.cs" Line="1" Column="1" />
+      <File FileName="ProgramExporter.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="YarnSpinnerConsole" expanded="True">
-            <Node name="YarnSpinnerConsole" expanded="True" selected="True">
+            <Node name="YarnSpinnerConsole" expanded="True">
               <Node name="References" expanded="True" />
+              <Node name="TableGenerator.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -22,11 +25,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <Debugger.DebugSourceFolders />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="91" column="1" />
-      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="87" column="1" />
-      <Breakpoint file="/Users/Ryan/Documents/Game Dev Libraries/Code/YarnSpinner-Forked/YarnSpinner/YarnSpinnerConsole/TableGenerator.cs" relfile="TableGenerator.cs" line="13" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Debug" Name="Debug">

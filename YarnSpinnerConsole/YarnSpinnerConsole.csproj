@@ -11,6 +11,7 @@
     <AssemblyName>YarnSpinnerConsole</AssemblyName>
     <PackageId>YarnSpinnerNuget</PackageId>
     <PackageVersion>0.2</PackageVersion>
+    <ReleaseVersion>0.9</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -39,9 +40,6 @@
     <Reference Include="CsvHelper">
       <HintPath>packages\CsvHelper.2.16.3.0\lib\net40\CsvHelper.dll</HintPath>
     </Reference>
-    <Reference Include="YarnSpinner">
-      <HintPath>YarnSpinner.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,5 +52,11 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YarnSpinner\YarnSpinner.csproj">
+      <Project>{6C3B03D2-2E89-4EC3-A022-E84053A7B17F}</Project>
+      <Name>YarnSpinner</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

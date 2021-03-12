@@ -86,6 +86,7 @@ namespace Yarn {
 	{
 		public string LineCode { get; set; }
 		public string LineText { get; set; }
+        public string Character { get; set; }
 		public string Comment { get; set; }
 	}
 

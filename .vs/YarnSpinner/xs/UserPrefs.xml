@@ -1,27 +1,25 @@
 ﻿<Properties StartupConfiguration="{24F90A1D-B1CA-4E0F-8BD2-A91D8B443855}|Default">
   <MonoDevelop.Ide.ItemProperties.YarnSpinnerTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.YarnConsole PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YarnSpinner/Loader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YarnSpinnerConsole/Main.cs">
     <Files>
-      <File FileName="YarnSpinner/Analyser.cs" Line="6" Column="12" />
-      <File FileName="YarnSpinner/Dialogue.cs" />
-      <File FileName="YarnSpinnerConsole/FileFormatConverter.cs" />
-      <File FileName="YarnSpinnerConsole/LineAdder.cs" />
-      <File FileName="YarnSpinner/Loader.cs" Line="167" Column="115" />
+      <File FileName="YarnSpinner/Dialogue.cs" Line="504" Column="22" />
+      <File FileName="YarnSpinner/Loader.cs" />
       <File FileName="YarnSpinnerConsole/ProgramExporter.cs" />
-      <File FileName="YarnSpinnerConsole/TableGenerator.cs" Line="1" Column="1" />
+      <File FileName="YarnSpinner/Compiler.cs" />
+      <File FileName="YarnSpinner/VirtualMachine.cs" />
+      <File FileName="YarnSpinnerConsole/TableGenerator.cs" Line="56" Column="5" />
       <File FileName="YarnSpinnerConsole/Main.cs" Line="1" Column="1" />
-      <File FileName="YarnSpinnerTests/DialogueTests.cs" Line="145" Column="1" />
-      <File FileName="YarnSpinnerTests/LanguageTests.cs" Line="18" Column="1" />
-      <File FileName="YarnSpinner/Lexer.cs" Line="631" Column="12" />
-      <File FileName="YarnSpinner/Parser.cs" Line="1241" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="YarnSpinner" expanded="True">
-            <Node name="YarnSpinner" expanded="True" selected="True" />
-            <Node name="YarnSpinnerConsole" expanded="True" />
+            <Node name="YarnSpinner" expanded="True" />
+            <Node name="YarnSpinnerConsole" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Main.cs" selected="True" />
+            </Node>
             <Node name="YarnSpinnerTests" expanded="True" />
           </Node>
         </State>

@@ -7,6 +7,11 @@ namespace Yarn
 
 	class TableGenerator
 	{
+        struct LineData {
+            public string text;
+            public string lineNum;
+            public string character;
+        }
 		static internal int GenerateTables (GenerateTableOptions options)
 		{
 
@@ -25,11 +30,68 @@ namespace Yarn
 
 				var stringTable = dialogue.GetStringTable ();
 
+                var program = dialogue.program;
+
 				var emittedStringTable = new Dictionary<string,string> ();
+
+                var emittedLineTable = new Dictionary<string, LineData> ();
 
 				var anyLinesAreUntagged = false;
 
                 YarnSpinnerConsole.Note ("Options Only use tag is not null: " + (options.onlyUseTag != null));
+
+                string currentCharacter = "";
+                Dictionary<string, string> currentOptions = new Dictionary<string, string> ();
+                foreach (var n in program.nodes) {
+                   
+                    foreach (var instruction in n.Value.instructions) {
+                        switch (instruction.operation) {
+                            case ByteCode.RunLine:                                
+                                //Set it up for checkin tags later
+                                string line = program.GetString((string)instruction.operandA);                                
+                                emittedStringTable[(string)instruction.operandA] = line;
+                                LineData lineData;
+                                lineData.lineNum = (string)instruction.operandA;
+                                lineData.text = line;
+                                lineData.character = currentCharacter;
+                                emittedLineTable.Add (lineData.lineNum, lineData);
+                                YarnSpinnerConsole.Note ("Getting Character Set - Key: " + (string)instruction.operandA + " Value: " + line + " Character: " + lineData.character);                                
+                                break;
+                            case ByteCode.AddOption:
+
+                                break;
+                            case ByteCode.ShowOptions:
+                                currentCharacter = "Fennel";
+                                foreach (var option in currentOptions) {
+                                    LineData ld;
+                                    ld.lineNum = option.Key;
+                                    ld.text = program.GetString (option.Key);
+                                    ld.character = currentCharacter;
+                                    emittedLineTable.Add (ld.lineNum, ld);
+                                }                                
+                                break;
+                            case ByteCode.RunCommand:
+                                YarnSpinnerConsole.Note ("Going through command: " + (string)instruction.operandA);
+                                string currentLine = (string)instruction.operandA;
+                                if (currentLine.StartsWith ("Show", System.StringComparison.Ordinal)) {
+                                    YarnSpinnerConsole.Note ("Command Starts with Show: " + (string)instruction.operandA);
+                                    string[] lines = currentLine.Split (new char[] { ' ' });
+                                    if (lines.Length > 2) {
+                                        YarnSpinnerConsole.Note ("Lines are longer than 2: " + lines[2]);
+                                        string[] c = lines[2].Split (new char[] { '/' });
+                                        if (c.Length > 0) {
+                                            currentCharacter = c[c.Length - 1];
+                                            YarnSpinnerConsole.Note ("Getting Character: " + currentCharacter);
+                                        }
+                                    }
+                                } else if (currentLine.StartsWith ("Hide", System.StringComparison.Ordinal)) {
+                                    currentCharacter = "";
+                                }
+                                break;
+                        }
+                    }
+                }
+
 
                 foreach (var entry in stringTable) {
 
@@ -92,12 +154,17 @@ namespace Yarn
 
 						foreach (var entry in emittedStringTable)
 						{
-
 							var l = new LocalisedLine();
 							l.LineCode = entry.Key;
 							l.LineText = entry.Value;
+                            if (emittedLineTable.ContainsKey (entry.Key)) {
+                                l.Character = emittedLineTable[entry.Key].character;
+                            } else {
+                                l.Character = "";
+                            }
 							l.Comment = "";
-                            YarnSpinnerConsole.Note ("LocalizedLine - Code: " + l.LineCode + " Text: " + l.LineText);
+                            
+                            YarnSpinnerConsole.Note ("LocalizedLine - Code: " + l.LineCode + " Text: " + l.LineText + " Character: " + l.Character);
                             csv.WriteRecord(l);
 						}
 
@@ -124,7 +191,7 @@ namespace Yarn
 
 			return 0;
 
-		}
+		}        
 
 		string CreateCSVRow (params string[] entries) {
 			return string.Join (",", entries);
